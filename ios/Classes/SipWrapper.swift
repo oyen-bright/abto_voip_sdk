@@ -175,7 +175,7 @@ class SipWrapper: NSObject, AbtoPhoneInterfaceObserver {
             let number: String = arguments as! String
             self.isIncomingCall = false
             self.isVideoCall = false
-            phone?.startCall(number, withVideo: false)
+            self.callId = phone?.startCall(number, withVideo: false)
             break
         case EVENT_START_VIDEO_CALL:
             let number: String = arguments as! String
