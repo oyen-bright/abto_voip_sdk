@@ -55,6 +55,12 @@
     <uses-feature android:name="android.hardware.camera.flash" android:required="false" />
     <uses-feature android:name="android.hardware.camera.front" android:required="false" />
 
+   <!-- Add the new permissions here -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_PHONE_CALL" />
+    <uses-permission android:name="android.permission.MANAGE_OWN_CALLS" />
+
+
+
     <application android:name="org.abtollc.sdk.AbtoApplication" >
 
         <activity android:name="org.abtollc.voip.abto_voip_sdk.GetPermissionsActivity" android:theme="@style/Theme.Transparent"
@@ -62,7 +68,11 @@
 
         <service
             android:name="org.abtollc.service.ABTOSipService"
-            android:exported="false">
+            android:exported="false"
+            android:stopWithTask="false"
+            android:foregroundServiceType="phoneCall"
+            >
+            
             <intent-filter>
                 <action android:name="org.abtollc.service.ABTOSipService" />
                 <action android:name="org.abtollc.service.SipConfiguration" />

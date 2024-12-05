@@ -175,13 +175,13 @@ class SipWrapper: NSObject, AbtoPhoneInterfaceObserver {
             let number: String = arguments as! String
             self.isIncomingCall = false
             self.isVideoCall = false
-            self.callId = phone?.startCall(number, withVideo: false)
+            self.callId = phone?.startCall(number, withVideo: false) ?? 0
             break
         case EVENT_START_VIDEO_CALL:
             let number: String = arguments as! String
             self.isIncomingCall = false
             self.isVideoCall = true
-            phone?.startCall(number, withVideo: true)
+            self.callId = phone?.startCall(number, withVideo: true) ?? 0
             break
         case EVENT_END_CALL:
             if ( isIncomingCall && !isCallConnected ) {

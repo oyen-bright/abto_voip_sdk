@@ -164,6 +164,7 @@ public class SipWrapper implements MethodChannel.MethodCallHandler {
         cfg.setRegisterTimeout(REGISTER_TIMEOUT);
 
         cfg.setSTUNServer("stun.l.google.com:19302");
+        phone.getConfig().setAlarmTimerEnabled(false);
 
         if (!PermissionUtil.checkPermissions(context, PermissionUtil.permissions)) {
             context.startActivity(new Intent(context, GetPermissionsActivity.class)
